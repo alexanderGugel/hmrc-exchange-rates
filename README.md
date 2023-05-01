@@ -2,7 +2,40 @@
 
 HMRC publishes monthly exchange rates in XML format [[Source](http://www.hmrc.gov.uk/softwaredevelopers/2023-exrates.html)]. Unfortunately, the format in which those exchange rates are published is rather unwieldy.
 
-`hmrc-exchange-rates` downloads exchange rates from HMRC and produces a simple CSV file, containing monthly exchange rates for all major currencies between February 2015 and the most recent month for which HMRC has published rates.
+`hmrc-exchange-rates` downloads exchange rates from HMRC and produces a single, easy-to-use CSV file, containing monthly exchange rates for all major currencies between February 2015 and the most recent month for which HMRC has published rates.
+
+**How is this different from the CSV files published by HMRC?**
+
+HMRC publishes **one CSV file per month**, containing exchange rates against all major currencies [[Example](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1120505/exrates-monthly-1222.csv/preview)]. If you need to look up monthly exchange rates over three years, you'd need to download and normalize 12 * 3 = 36 CSV files. This is annoying.
+
+This script produces a **single CSV** containing monthly exchange rates against **all** major currencies, starting February 2015.
+
+The resulting CSV looks something like this:
+
+```CSV
+period_start,period_end,country_name,country_code,currency_name,currency_code,rate_new
+2015-02-01,2015-02-28,Argentina,AR,Peso ,ARS,13.02
+2015-02-01,2015-02-28,Australia,AU,Dollar ,AUD,1.8385
+2015-02-01,2015-02-28,Austria,AT,Euro ,EUR,1.3008
+2015-02-01,2015-02-28,Belgium,BE,Euro ,EUR,1.3008
+2015-02-01,2015-02-28,Brazil,BR,Real ,BRL,3.9326
+2015-02-01,2015-02-28,Canada,CA,Dollar,CAD,1.8251
+2015-02-01,2015-02-28,Cyprus,CY,Euro ,EUR,1.3008
+2015-02-01,2015-02-28,Denmark,DK,Krone ,DKK,9.664
+2015-02-01,2015-02-28,Estonia,EE,Euro,EUR,1.3008
+2015-02-01,2015-02-28,Finland,FI,Euro ,EUR,1.3008
+2015-02-01,2015-02-28,France,FR,Euro ,EUR,1.3008
+2015-02-01,2015-02-28,Germany,DE,Euro ,EUR,1.3008
+[...]
+2023-05-01,2023-05-31,Vanuatu,VU,Vatu ,VUV,148.3112
+2023-05-01,2023-05-31,Venezuela,VE,Bolivar Fuerte ,VEF,319866.39
+2023-05-01,2023-05-31,Vietnam,VN,Dong ,VND,29259.5291
+2023-05-01,2023-05-31,Wallis & Futuna Islands,WF,CFP Franc ,XPF,135.5738
+2023-05-01,2023-05-31,Western Samoa,WS,Tala ,WST,3.3924
+2023-05-01,2023-05-31,Yemen (Rep of),YE,Rial ,YER,311.4628
+2023-05-01,2023-05-31,Zambia,ZM,Kwacha ,ZMW,21.5483
+2023-05-01,2023-05-31,Zimbabwe,ZW,Dollar ,ZWL,450.5671
+```
 
 ## Usage
 
@@ -11,7 +44,7 @@ Run `make all`, which will
 2. download monthly exchange rates between February 2015 and the most recent month for which HMRC has published rates,
 3. generate `hmrc_exchange_rates.csv`, `hmrc_exchange_rates_usd.csv`, and `hmrc_exchange_rates_eur.csv`.
 
-```
+```sh
 alexandergugel@192 hmrc-exchange-rates % make all
 go build
 ./hmrc-exchange-rates > hmrc_exchange_rates.csv
