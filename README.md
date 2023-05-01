@@ -1,6 +1,6 @@
 # `hmrc-exchange-rates`
 
-HMRC publishes monthly exchange rates in XML format [[Source](http://www.hmrc.gov.uk/softwaredevelopers/2023-exrates.html)]. Unfortunately, the format in which those exchange rates are published are rather unwieldy.
+HMRC publishes monthly exchange rates in XML format [[Source](http://www.hmrc.gov.uk/softwaredevelopers/2023-exrates.html)]. Unfortunately, the format in which those exchange rates are published is rather unwieldy.
 
 `hmrc-exchange-rates` downloads exchange rates from HMRC and produces a simple CSV file, containing monthly exchange rates for all major currencies between February 2015 and the most recent month for which HMRC has published rates.
 
