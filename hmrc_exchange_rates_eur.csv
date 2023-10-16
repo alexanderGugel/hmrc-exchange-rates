@@ -158,3 +158,8 @@ period_start,period_end,country_name,country_code,currency_name,currency_code,ra
 2023-04-01,2023-04-30,Croatia,EU,Euro ,EUR,1.1334
 2023-04-01,2023-04-30,Eurozone,EU,Euro ,EUR,1.1334
 2023-05-01,2023-05-31,Eurozone,EU,Euro ,EUR,1.1361
+2023-06-01,2023-06-30,Eurozone,EU,Euro ,EUR,1.1489
+2023-07-01,2023-07-31,Eurozone,EU,Euro ,EUR,1.1622
+2023-08-01,2023-08-31,Eurozone,EU,Euro ,EUR,1.1515
+2023-09-01,2023-09-30,Eurozone,EU,Euro ,EUR,1.1683
+2023-10-01,2023-10-31,Eurozone,EU,Euro ,EUR,1.1555
