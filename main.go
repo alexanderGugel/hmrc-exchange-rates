@@ -43,10 +43,11 @@ func main() {
 		return
 	}
 
-	t := time.Date(2015, time.February, 1, 0, 0, 0, 0, time.UTC)
+	t := time.Date(2021, time.February, 1, 0, 0, 0, 0, time.UTC)
 
 	for t.Before(time.Now()) {
-		url := fmt.Sprintf("http://www.hmrc.gov.uk/softwaredevelopers/rates/exrates-monthly-%s.XML", t.Format("0106"))
+		year, month, _ := t.Date()
+		url := fmt.Sprintf("https://www.trade-tariff.service.gov.uk/api/v2/exchange_rates/files/monthly_xml_%d-%d.xml", year, month)
 		log.Printf("fetching %s...\n", url)
 
 		resp, err := http.Get(url)
